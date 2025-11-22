@@ -1,0 +1,337 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`forecast api should provide response type based on the requested parameters 1`] = `
+{
+  "cloud_cover": "number",
+  "keys": [
+    "cloud_cover",
+    "temperature_2m",
+    "time",
+    "wind_speed_10m",
+  ],
+  "temperature_2m": "number",
+  "wind_speed_10m": "number",
+}
+`;
+
+exports[`forecast api should provide response type based on the requested parameters 2`] = `
+{
+  "cloud_cover": "%",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+  "wind_speed_10m": "km/h",
+}
+`;
+
+exports[`forecast api should provide response type based on the requested parameters 3`] = `
+{
+  "keys": [
+    "precipitation_sum",
+    "temperature_2m_max",
+    "temperature_2m_min",
+    "time",
+  ],
+  "precipitation_sum": "number",
+  "temperature_2m_max": "number",
+  "temperature_2m_min": "number",
+}
+`;
+
+exports[`forecast api should provide response type based on the requested parameters 4`] = `
+{
+  "precipitation_sum": "mm",
+  "temperature_2m_max": "°C",
+  "temperature_2m_min": "°C",
+  "time": "unixtime",
+}
+`;
+
+exports[`forecast api should provide response type based on the requested parameters 5`] = `
+{
+  "keys": [
+    "temperature_2m",
+    "time",
+    "weather_code",
+  ],
+  "temperature_2m": "number",
+  "weather_code": "number",
+}
+`;
+
+exports[`forecast api should provide response type based on the requested parameters 6`] = `
+{
+  "interval": "seconds",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+  "weather_code": "wmo code",
+}
+`;
+
+exports[`forecast api should work with only hourly variables 1`] = `
+[
+  "precipitation",
+  "temperature_2m",
+  "time",
+]
+`;
+
+exports[`forecast api should work with only hourly variables 2`] = `
+{
+  "precipitation": "mm",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+}
+`;
+
+exports[`forecast api should work with only daily variables 1`] = `
+[
+  "sunrise",
+  "sunset",
+  "temperature_2m_max",
+  "time",
+]
+`;
+
+exports[`forecast api should work with only daily variables 2`] = `
+{
+  "sunrise": "unixtime",
+  "sunset": "unixtime",
+  "temperature_2m_max": "°C",
+  "time": "unixtime",
+}
+`;
+
+exports[`forecast api should work with only current variables 1`] = `
+[
+  "temperature_2m",
+  "time",
+  "wind_speed_10m",
+]
+`;
+
+exports[`forecast api should work with only current variables 2`] = `
+{
+  "interval": "seconds",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+  "wind_speed_10m": "km/h",
+}
+`;
+
+exports[`forecast api should handle all available variables at once 1`] = `
+[
+  "apparent_temperature",
+  "cloud_cover",
+  "cloud_cover_high",
+  "cloud_cover_low",
+  "cloud_cover_mid",
+  "dew_point_2m",
+  "et0_fao_evapotranspiration",
+  "evapotranspiration",
+  "precipitation",
+  "precipitation_probability",
+  "pressure_msl",
+  "rain",
+  "relative_humidity_2m",
+  "showers",
+  "snow_depth",
+  "snowfall",
+  "soil_moisture_0_1cm",
+  "soil_moisture_1_3cm",
+  "soil_moisture_27_81cm",
+  "soil_moisture_3_9cm",
+  "soil_moisture_9_27cm",
+  "soil_temperature_0cm",
+  "soil_temperature_18cm",
+  "soil_temperature_54cm",
+  "soil_temperature_6cm",
+  "surface_pressure",
+  "temperature_120m",
+  "temperature_180m",
+  "temperature_2m",
+  "temperature_80m",
+  "time",
+  "vapour_pressure_deficit",
+  "visibility",
+  "weather_code",
+  "wind_direction_10m",
+  "wind_direction_120m",
+  "wind_direction_180m",
+  "wind_direction_80m",
+  "wind_gusts_10m",
+  "wind_speed_10m",
+  "wind_speed_120m",
+  "wind_speed_180m",
+  "wind_speed_80m",
+]
+`;
+
+exports[`forecast api should handle all available variables at once 2`] = `
+[
+  "apparent_temperature_max",
+  "apparent_temperature_min",
+  "daylight_duration",
+  "et0_fao_evapotranspiration",
+  "precipitation_hours",
+  "precipitation_probability_max",
+  "precipitation_sum",
+  "rain_sum",
+  "shortwave_radiation_sum",
+  "showers_sum",
+  "snowfall_sum",
+  "sunrise",
+  "sunset",
+  "sunshine_duration",
+  "temperature_2m_max",
+  "temperature_2m_min",
+  "time",
+  "uv_index_clear_sky_max",
+  "uv_index_max",
+  "weather_code",
+  "wind_direction_10m_dominant",
+  "wind_gusts_10m_max",
+  "wind_speed_10m_max",
+]
+`;
+
+exports[`forecast api should handle all available variables at once 3`] = `
+[
+  "apparent_temperature",
+  "cloud_cover",
+  "is_day",
+  "precipitation",
+  "pressure_msl",
+  "rain",
+  "relative_humidity_2m",
+  "showers",
+  "snowfall",
+  "surface_pressure",
+  "temperature_2m",
+  "time",
+  "weather_code",
+  "wind_direction_10m",
+  "wind_gusts_10m",
+  "wind_speed_10m",
+]
+`;
+
+exports[`forecast api should handle all available variables at once 4`] = `
+{
+  "apparent_temperature": "°C",
+  "cloud_cover": "%",
+  "cloud_cover_high": "%",
+  "cloud_cover_low": "%",
+  "cloud_cover_mid": "%",
+  "dew_point_2m": "°C",
+  "et0_fao_evapotranspiration": "mm",
+  "evapotranspiration": "mm",
+  "precipitation": "mm",
+  "precipitation_probability": "%",
+  "pressure_msl": "hPa",
+  "rain": "mm",
+  "relative_humidity_2m": "%",
+  "showers": "mm",
+  "snow_depth": "m",
+  "snowfall": "cm",
+  "soil_moisture_0_1cm": "m³/m³",
+  "soil_moisture_1_3cm": "m³/m³",
+  "soil_moisture_27_81cm": "m³/m³",
+  "soil_moisture_3_9cm": "m³/m³",
+  "soil_moisture_9_27cm": "m³/m³",
+  "soil_temperature_0cm": "°C",
+  "soil_temperature_18cm": "°C",
+  "soil_temperature_54cm": "°C",
+  "soil_temperature_6cm": "°C",
+  "surface_pressure": "hPa",
+  "temperature_120m": "°C",
+  "temperature_180m": "°C",
+  "temperature_2m": "°C",
+  "temperature_80m": "°C",
+  "time": "unixtime",
+  "vapour_pressure_deficit": "kPa",
+  "visibility": "m",
+  "weather_code": "wmo code",
+  "wind_direction_10m": "°",
+  "wind_direction_120m": "°",
+  "wind_direction_180m": "°",
+  "wind_direction_80m": "°",
+  "wind_gusts_10m": "km/h",
+  "wind_speed_10m": "km/h",
+  "wind_speed_120m": "km/h",
+  "wind_speed_180m": "km/h",
+  "wind_speed_80m": "km/h",
+}
+`;
+
+exports[`forecast api should handle all available variables at once 5`] = `
+{
+  "apparent_temperature_max": "°C",
+  "apparent_temperature_min": "°C",
+  "daylight_duration": "s",
+  "et0_fao_evapotranspiration": "mm",
+  "precipitation_hours": "h",
+  "precipitation_probability_max": "%",
+  "precipitation_sum": "mm",
+  "rain_sum": "mm",
+  "shortwave_radiation_sum": "MJ/m²",
+  "showers_sum": "mm",
+  "snowfall_sum": "cm",
+  "sunrise": "unixtime",
+  "sunset": "unixtime",
+  "sunshine_duration": "s",
+  "temperature_2m_max": "°C",
+  "temperature_2m_min": "°C",
+  "time": "unixtime",
+  "uv_index_clear_sky_max": "",
+  "uv_index_max": "",
+  "weather_code": "wmo code",
+  "wind_direction_10m_dominant": "°",
+  "wind_gusts_10m_max": "km/h",
+  "wind_speed_10m_max": "km/h",
+}
+`;
+
+exports[`forecast api should handle all available variables at once 6`] = `
+{
+  "apparent_temperature": "°C",
+  "cloud_cover": "%",
+  "interval": "seconds",
+  "is_day": "",
+  "precipitation": "mm",
+  "pressure_msl": "hPa",
+  "rain": "mm",
+  "relative_humidity_2m": "%",
+  "showers": "mm",
+  "snowfall": "cm",
+  "surface_pressure": "hPa",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+  "weather_code": "wmo code",
+  "wind_direction_10m": "°",
+  "wind_gusts_10m": "km/h",
+  "wind_speed_10m": "km/h",
+}
+`;
+
+exports[`forecast api should include correct unit information 1`] = `
+{
+  "temperature_2m": "°C",
+  "time": "unixtime",
+  "wind_speed_10m": "km/h",
+}
+`;
+
+exports[`forecast api should include correct unit information 2`] = `
+{
+  "temperature_2m_max": "°C",
+  "time": "unixtime",
+}
+`;
+
+exports[`forecast api should include correct unit information 3`] = `
+{
+  "interval": "seconds",
+  "temperature_2m": "°C",
+  "time": "unixtime",
+}
+`;
