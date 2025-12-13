@@ -1,5 +1,8 @@
 # @alanko0511/open-meteo-js
 
+[![npm](https://img.shields.io/npm/dm/@alanko0511/open-meteo-js)](https://www.npmjs.com/package/@alanko0511/open-meteo-js)
+[![npm](https://img.shields.io/npm/v/@alanko0511/open-meteo-js)](https://www.npmjs.com/package/@alanko0511/open-meteo-js)
+
 A type-safe TypeScript/JavaScript library for the [Open-Meteo Weather API](https://open-meteo.com/). This library uses the JSON API format and transforms the data into an easy-to-use structure (for me at least) with full type safety.
 
 If you need maximum performance, you should check out their [official library](https://www.npmjs.com/package/openmeteo) which uses FlatBuffers. This library is slower because it uses JSON over HTTP with Zod validation, but focuses on developer experience and type safety instead.
