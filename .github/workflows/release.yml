@@ -65,4 +65,4 @@ jobs:
 
       - name: Publish to npm
         if: steps.npm_check.outputs.exists == 'false'
-        run: npm publish --access public
+        run: NODE_AUTH_TOKEN="" npm publish --access public
