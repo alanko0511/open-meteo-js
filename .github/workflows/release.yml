@@ -44,17 +44,8 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Check if version exists on npm
-        id: npm_check
-        run: |
-          if npm view @alanko0511/open-meteo-js@${{ steps.version.outputs.version }} version >/dev/null 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Create GitHub Release
-        if: steps.tag_check.outputs.exists == 'false' && steps.npm_check.outputs.exists == 'false'
+        if: steps.tag_check.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.version.outputs.version }}
@@ -62,16 +53,16 @@ jobs:
           generate_release_notes: true
 
       - name: Setup Node.js for npm publish
-        if: steps.tag_check.outputs.exists == 'false' && steps.npm_check.outputs.exists == 'false'
+        if: steps.tag_check.outputs.exists == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
 
       - name: Build
-        if: steps.tag_check.outputs.exists == 'false' && steps.npm_check.outputs.exists == 'false'
+        if: steps.tag_check.outputs.exists == 'false'
         run: bun run build
 
       - name: Publish to npm
-        if: steps.tag_check.outputs.exists == 'false' && steps.npm_check.outputs.exists == 'false'
+        if: steps.tag_check.outputs.exists == 'false'
         run: npm publish --access public
