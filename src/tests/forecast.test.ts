@@ -373,7 +373,6 @@ describe("forecast api", () => {
       expect(httpError.response.status).toBe(400);
 
       const requestUrl = httpError.request.url;
-      console.log("where - request URL:", requestUrl);
       expect(requestUrl).toStartWith("https://customer-api.open-meteo.com");
       expect(requestUrl).toContain("apikey=fake-invalid-api-key-12345");
 

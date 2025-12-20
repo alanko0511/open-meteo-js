@@ -5,12 +5,11 @@
 
 A type-safe TypeScript/JavaScript library for the [Open-Meteo Weather API](https://open-meteo.com/). This library uses the JSON API format and transforms the data into an easy-to-use structure (for me at least) with full type safety.
 
-If you need maximum performance, you should check out their [official library](https://www.npmjs.com/package/openmeteo) which uses FlatBuffers. This library is slower because it uses JSON over HTTP with Zod validation, but focuses on developer experience and type safety instead.
+If you need maximum performance, you should check out their [official library](https://www.npmjs.com/package/openmeteo) which uses FlatBuffers. This library uses JSON over HTTP and focuses on developer experience and type safety.
 
 ## Features
 
 - **Fully Type-Safe**: Response types automatically match your requested variables
-- **Runtime Validation**: Zod schemas validate both inputs and outputs
 - **Transformed Data**: Converts Open-Meteo's parallel arrays into arrays of objects
 - **Timestamps in Milliseconds**: Unix timestamps converted to JavaScript milliseconds (ready for `new Date()`)
 - **Type-Safe Units**: Units included for all variables with full type safety
@@ -352,9 +351,11 @@ const hours = new Date(forecast.hourly[0].time).getHours();
 
 ## Error Handling
 
-The library validates both input parameters and API responses using Zod:
+The library uses [ky](https://github.com/sindresorhus/ky) for HTTP requests, which throws `HTTPError` for non-2xx responses:
 
 ```typescript
+import { HTTPError } from "ky";
+
 try {
   const forecast = await forecastAPI({
     latitude: 52.52,
@@ -362,9 +363,11 @@ try {
     hourly: ["temperature_2m"],
   });
 } catch (error) {
-  if (error instanceof ZodError) {
-    // Validation error (invalid params or unexpected API response)
-    console.error("Validation error:", error.issues);
+  if (error instanceof HTTPError) {
+    // API error (e.g., invalid coordinates, rate limiting)
+    console.error("API error:", error.response.status);
+    const body = await error.response.json();
+    console.error("Reason:", body.reason);
   } else {
     // Network or other errors
     console.error("Request failed:", error);

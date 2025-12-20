@@ -42,8 +42,7 @@
     "url": "https://github.com/alanko0511/open-meteo-js"
   },
   "dependencies": {
-    "ky": "^1.14.0",
-    "zod": "^4.1.12"
+    "ky": "^1.14.0"
   },
   "devDependencies": {
     "@types/bun": "latest",

@@ -1,5 +1,4 @@
 import ky from "ky";
-import { forecastParamsSchema, rawForecastResponseSchema } from "./schemas";
 import { transformForecastResponse } from "./transform";
 import type { ForecastAPIConfig, ForecastParams, ForecastResponse, RawForecastResponse } from "./types";
 
@@ -64,8 +63,7 @@ export async function forecastAPI<T extends ForecastParams>(
   params: T,
   config?: ForecastAPIConfig
 ): Promise<ForecastResponse<T>> {
-  const validatedParams = forecastParamsSchema.parse(params);
-  const { hourly, daily, current, ...scalarParams } = validatedParams;
+  const { hourly, daily, current, ...scalarParams } = params;
 
   const searchParams: Record<string, any> = {
     ...scalarParams,
@@ -101,9 +99,8 @@ export async function forecastAPI<T extends ForecastParams>(
     searchParams.current = current.join(",");
   }
 
-  const rawResponse = await api.get("forecast", { searchParams }).json();
-  const validatedResponse = rawForecastResponseSchema.parse(rawResponse);
-  const transformed = transformForecastResponse(validatedResponse as RawForecastResponse);
+  const rawResponse = await api.get("forecast", { searchParams }).json<RawForecastResponse>();
+  const transformed = transformForecastResponse(rawResponse);
 
   return transformed as ForecastResponse<T>;
 }
