@@ -1,6 +1,6 @@
 {
   "name": "@alanko0511/open-meteo-js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A Type-safe JavaScript client for the Open-Meteo API",
   "type": "module",
   "license": "MIT",
